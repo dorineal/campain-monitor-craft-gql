@@ -1,0 +1,62 @@
+{# @var craft \craft\web\twig\variables\CraftVariable #}
+{#
+/**
+ * CMC-Gql plugin for Craft CMS 3.x
+ *
+ * CMC-Gql Settings.twig
+ *
+ * @author    Dorine Allali
+ * @copyright Copyright (c) 2021 Dorine Allali
+ * @link      dorineallali.com
+ * @package   CMCGql
+ * @since     1.0.0
+ */
+#}
+{% set title = 'Campaign Monitor Connector GQL' %}
+{% set fullPageForm = true %}
+
+{% do view.registerAssetBundle("dorineal\\cmcgql\\assetbundles\\cmcgql\\CMCGqlAsset") %}
+	{% block content %}
+
+	{% import "_includes/forms" as forms %}
+
+	<input type="hidden" name="action" value="plugins/save-plugin-settings"/> <input type="hidden" name="pluginHandle" value="cmc-gql"/>
+
+	{{
+		    forms.autosuggestField({
+		        first:        true,
+		        label:        'API Key',
+		        instructions: '',
+		        id:           'apiKey',
+		        name:         'apiKey',
+		        placeholder:  '',
+		        value:        settings.apiKey,
+		        suggestEnvVars: true
+		    })
+		}}
+
+	{{
+		    forms.autosuggestField({
+		        label:        'Client ID',
+		        instructions: '',
+		        id:           'clientId',
+		        name:         'clientId',
+		        placeholder:  '',
+		        value:        settings.clientId,
+		        suggestEnvVars: true
+		    })
+		}}
+
+	{% if lists is defined and lists|length > 0 %}
+		{{
+		        forms.selectField({
+		            label: 'Choose a list you want to connect with Campaign Monitor',
+		            instructions: 'The list that will be used to add or remove users from',
+                    name: 'listId',
+		            id: 'listId',
+		            value: settings.listId,
+		            options: lists
+		        })
+		    }}
+	{% endif %}
+{% endblock %}

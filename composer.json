@@ -1,0 +1,45 @@
+{
+  "name": "dorineal/cmc-gql",
+  "description": "Campaign Monitor Connector GQL plugin for Craft CMS 3.x",
+  "type": "craft-plugin",
+  "version": "1.0.0",
+  "keywords": [
+    "craft",
+    "cms",
+    "craftcms",
+    "craft-plugin",
+    "cmc-gql"
+  ],
+  "support": {
+    "docs": "https://github.com/dorineal/cmc-gql/blob/master/README.md",
+    "issues": "https://github.com/dorineal/cmc-gql/issues"
+  },
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Dorine Allali",
+      "homepage": "dorineallali.com"
+    }
+  ],
+  "require": {
+    "craftcms/cms": "^3.0.0",
+    "campaignmonitor/createsend-php": "^6.1.1"
+  },
+  "autoload": {
+    "psr-4": {
+      "dorineal\\cmcgql\\": "src/"
+    }
+  },
+  "extra": {
+    "name": "CMC-Gql",
+    "handle": "cmc-gql",
+    "developer": "Dorine Allali",
+    "developerUrl": "dorineallali.com",
+    "documentationUrl": "https://github.com/dorineal/cmc-gql/blob/master/README.md",
+    "changelogUrl": "https://raw.githubusercontent.com/dorineal/cmc-gql/master/CHANGELOG.md",
+    "components": {
+      "settings": "dorineal\\cmcgql\\services\\Settings"
+    },
+    "class": "dorineal\\cmcgql\\CMCGql"
+  }
+}
